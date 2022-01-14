@@ -1,4 +1,6 @@
-# example
+# RURL
+
+> Teaching myself Vue.js because I've never really worked with this framework.
 
 ## Project setup
 ```
@@ -14,11 +16,12 @@ yarn serve
 ```
 yarn build
 ```
+If you'd like to see your build locally make sure you have `serve` installed (globally is best) and drop into the `dist` folder and run `serve -s` and you should be able to see any potential production issues with your dependencies.
 
 ### Lints and fixes files
 ```
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Lessons Learned
+- will update along the way
