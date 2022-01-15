@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { logHeader, logStandard } from '@/vars.js'
 export default {
   name: 'App',
   data () {
@@ -32,6 +33,7 @@ export default {
     }
   }
 }
+console.log('%cApp Started!\n\n%cWelcome to Jack Keller\'s Playground...', logHeader, logStandard);
 </script>
 
 <style lang="sass">

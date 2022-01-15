@@ -24,4 +24,5 @@ yarn lint
 ```
 
 ## Lessons Learned
-- will update along the way
+- I had a heck of a time getting `@testing-library/vue` to work with vue3 and jest; this took a bit longer than I would have liked.
+- Ran into issues with Jest not recognizing `fetch` so added `cross-fetch` package that seemed to do the trick.
