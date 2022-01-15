@@ -6,8 +6,8 @@ describe('Home', () => {
 
   it('should load the home view with the header Home Page', () => {
     const { getByText } = render(Home)
-    const Header = getByText('Home Page')
-
+    const Header = getByText('Drinks')
+    
     expect(Header).toBeInTheDocument()
   })
 
