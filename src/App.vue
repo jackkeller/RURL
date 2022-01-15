@@ -38,22 +38,4 @@ console.log('%cApp Started!\n\n%cWelcome to Jack Keller\'s Playground...', logHe
 
 <style lang="sass">
   @import "@/styles/app.sass"
-
-  .logo
-    font-size: 1.4rem 
-
-  nav
-    a
-      color: var(--nav-link-color)
-      font-weight: bold
-      text-transform: uppercase
-      text-decoration: none
-      padding: 0 .5rem
-
-      &:not(:last-child)
-        margin-right: 1rem
-
-      &.router-link-exact-active
-        color: var(--nav-link-active-color)
-        border-bottom: 4px solid var(--text-secondary)
 </style>
