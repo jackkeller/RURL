@@ -1,12 +1,27 @@
 <template>
   <section class="categories">
-    <h1>{{ heading }}</h1>
-    <select data-testid="drink-category-select">
-      <option value="">Select a category</option>
-      <option v-for="category in categoryList" :key="category.strCategory" :value="category.strCategory">
-        {{ category.strCategory }}
-      </option>
-    </select>
+    <div class="heading">
+      <select data-testid="drink-category-select" @change="filterCategory($event.target.value)">
+        <option>Select a drink category</option>
+        <option v-for="category in categoryList" :key="category.strCategory" :value="category.strCategory">
+          {{ category.strCategory }}
+        </option>
+      </select>
+      <h1>{{ selectedDrinksType }}</h1>
+    </div>    
+  </section>
+  
+  <section v-if="!selectedDrinks.length">
+    <h2>Loading...</h2>
+  </section>
+
+  <section v-if="selectedDrinks.length">
+    <div class="drinks">
+      <div class="drink" v-for="drink in selectedDrinks" :key="drink.idDrink">
+        <h3>{{ drink.strDrink }}</h3>
+        <img :src="drink.strDrinkThumb" :alt="drink.strDrink" :title="drink.strDrink">
+      </div>
+    </div>
   </section>
 </template>
 
@@ -22,7 +37,9 @@ export default {
   data() {
     this.categoryList
     return {
-      categoryList: []
+      categoryList: [],
+      selectedDrinks: [],
+      selectedDrinksType: '',
     }
   },
   methods: {
@@ -32,11 +49,30 @@ export default {
         .then(data => {
           this.categoryList = data.drinks
         })
+    },
+    filterCategory(category) {
+      this.selectedDrinksType = `${category}s`
+      fetch(api.filter + category)
+        .then(res => res.json())
+        .then(data => {
+          this.selectedDrinks = data.drinks
+        })
     }
   },
   mounted() {
-    this.getDrinkCategories()
+    this.getDrinkCategories(),
+    setTimeout(() => {
+      this.filterCategory(this.categoryList[0].strCategory)
+    }, 1000)
   }
 }
 </script>
 
+<style scoped>
+select {
+  padding: 5px 10px;
+  background: transparent;
+  color: var(--text-primary);
+  accent-color: var(--text-primary);
+}
+</style>
