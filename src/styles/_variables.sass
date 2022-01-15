@@ -16,6 +16,16 @@
     --nav-link-active-color: #fff
 
   --container-width: 90vw
+  --drink-grid-gap: 0
+  --drink-grid-columns: 1fr
+  --drink-heading-flex-direction: column-reverse
+
+  @media (min-width: 768px)
+    --drink-grid-gap: 2rem
+    --drink-grid-columns: repeat(2, 1fr)
+    --drink-heading-flex-direction: row-reverse
   
   @media (min-width: 1200px)
     --container-width: 1140px
+    --drink-grid-gap: 3rem
+    --drink-grid-columns: repeat(3, 1fr)
