@@ -1,4 +1,6 @@
 @import 'variables'
+@import 'mixins'
+@import 'elements'
 @import 'header'
 @import 'drinks'
 
@@ -8,6 +10,7 @@ html
   padding: 0
 
 body
+  @include scrollbars
   -moz-osx-font-smoothing: grayscale
   -webkit-font-smoothing: antialiased
   background: var(--bg-primary)
@@ -28,7 +31,7 @@ body
     .container
       align-items: center
       display: flex
-      height: 60px
+      height: rem(60)
       justify-content: space-between
 
   main
@@ -42,7 +45,7 @@ body
       align-items: center
       display: flex
       justify-content: center
-      height: 100px
+      height: rem(100)
 
 .container
   max-width: var(--container-width)

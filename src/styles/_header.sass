@@ -1,17 +1,18 @@
 .logo
-  font-size: 1.4rem 
+  font-size: var(--font-size-large) 
 
 nav
   a
     color: var(--nav-link-color)
     font-weight: bold
-    text-transform: uppercase
+    padding: 0 var(--content-spacing-small)
     text-decoration: none
-    padding: 0 .5rem
+    text-transform: uppercase
 
     &:not(:last-child)
-      margin-right: 1rem
+      +query($md)
+        margin-right: rem(8)
 
     &.router-link-exact-active
+      border-bottom: var(--border-medium) solid var(--text-secondary)
       color: var(--nav-link-active-color)
-      border-bottom: 4px solid var(--text-secondary)

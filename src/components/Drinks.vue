@@ -2,7 +2,7 @@
   <section class="categories">
     <div class="heading">
       <select data-testid="drink-category-select" @change="filterCategory($event.target.value)">
-        <option>Select a drink category</option>
+        <option v-if="categoryList.length" :value="categoryList[0].strCategory">Select a drink category</option>
         <option v-for="category in categoryList" :key="category.strCategory" :value="category.strCategory">
           {{ category.strCategory }}
         </option>
@@ -67,12 +67,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-select {
-  padding: 5px 10px;
-  background: transparent;
-  color: var(--text-primary);
-  accent-color: var(--text-primary);
-}
-</style>

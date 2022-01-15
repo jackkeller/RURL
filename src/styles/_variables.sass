@@ -1,11 +1,16 @@
+@import 'mixins'
+
 \:root
   // Colors
   --bg-primary: #fafafa
-  --bg-secondary: #f5f5f5
+  --bg-secondary: #d2d2d2
   --text-primary: #242424
   --text-secondary: #979797
   --nav-link-color: #242424
   --nav-link-active-color: #648994
+  --scrollbar-handle-color: var(--nav-link-active-color)
+  --scrollbar-track-color: var(--bg-secondary)
+  --scrollbar-handle-color-hover: #476169
 
   @media (prefers-color-scheme: dark)
     --bg-primary: #242424
@@ -14,18 +19,46 @@
     --text-secondary: #f5f5f5
     --nav-link-color: #979797
     --nav-link-active-color: #fff
+    --scrollbar-handle-color-hover: #b3b3b3
 
-  --container-width: 90vw
-  --drink-grid-gap: 0
+  // Responsive Updates
+  --border: #{rem(1)}
+  --border-medium: #{rem(2)}
+  --border-large: #{rem(4)}
+  --container-width: 85vw
+  --content-spacing-small: #{rem(8)}
+  --content-spacing: #{rem(16)}
+  --content-spacing-double: #{rem(32)}
   --drink-grid-columns: 1fr
+  --drink-grid-gap: 0
+  --drink-heading-align-items: none
   --drink-heading-flex-direction: column-reverse
+  --drink-heading-justify-content: start
+  --font-size: #{rem(18)}
+  --font-size-large: #{rem(18)}
+  --scrollbar-width: #{rem(8)}
+  --transition-timing: .2s
+
+  @media (prefers-reduced-motion: reduce)
+    --transition-timing: 0s
 
   @media (min-width: 768px)
-    --drink-grid-gap: 2rem
+    --border: #{rem(2)}
+    --border-medium: #{rem(4)}
+    --border-large: #{rem(8)}
+    --content-spacing-small: #{rem(16)}
+    --content-spacing: #{rem(32)}
+    --content-spacing-double: #{rem(64)}
     --drink-grid-columns: repeat(2, 1fr)
+    --drink-grid-gap: #{rem(32)}
+    --drink-heading-align-items: center
     --drink-heading-flex-direction: row-reverse
+    --drink-heading-justify-content: space-between
+    --font-size: #{rem(16)}
+    --font-size-large: #{rem(24)}
+    --scrollbar-width: #{rem(14)}
   
   @media (min-width: 1200px)
     --container-width: 1140px
-    --drink-grid-gap: 3rem
     --drink-grid-columns: repeat(3, 1fr)
+    --drink-grid-gap: #{rem(48)}
