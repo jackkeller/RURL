@@ -3,6 +3,7 @@
 > Teaching myself Vue.js because I've never really worked with this framework.
 
 ## Project setup
+If you're not using `nvm` you'll want to make sure you're doing the step below with `v15.14.0` node in the directory, if you are using `nvm`, you're all set!
 ```
 yarn install
 ```

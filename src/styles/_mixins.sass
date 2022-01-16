@@ -1,5 +1,5 @@
 @function rem($size, $neg: false)
-  $rem-size: $size / 16
+  $rem-size: calc($size / 16)
 
   @if $neg==true
     @return -#{$rem-size}rem
