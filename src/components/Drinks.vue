@@ -68,8 +68,8 @@ export default {
         })
     },
     filterCategory(category) {
-      if (sessionStorage.getItem(category)) {
-        this.selectedDrinks = JSON.parse(sessionStorage.getItem(category))
+      if (localStorage.getItem(category)) {
+        this.selectedDrinks = JSON.parse(localStorage.getItem(category))
         this.selectedDrinksType = category
       } else {
         fetch(api.filter + category)
@@ -77,12 +77,11 @@ export default {
           .then(data => {
             this.selectedDrinks = data.drinks
             this.selectedDrinksType = category
-            this.filteredDrinks = []
-            this.$refs.search.value = ''
-            sessionStorage.setItem(category, JSON.stringify(data.drinks))
+            localStorage.setItem(category, JSON.stringify(data.drinks))
           })
       }
-      this.filterCategory(this.categoryList[0].strCategory)
+      this.filteredDrinks = []
+      this.$refs.search.value = ''
     },
     filterDrinks(filter) {
       let filteredDrinks = this.selectedDrinks
@@ -107,10 +106,14 @@ export default {
   },
   mounted() {
     this.getDrinkCategories()
-
-    setTimeout(() => {
+    
+    if (this.selectedDrinksType) {
       this.filterCategory(this.categoryList[0].strCategory)
-    }, 1000)
+    } else {
+      setTimeout(() => {
+        this.filterCategory(this.categoryList[0].strCategory)
+      }, 1000)
+    }
   }
 }
 </script>
