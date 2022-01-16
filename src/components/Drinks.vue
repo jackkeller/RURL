@@ -68,14 +68,21 @@ export default {
         })
     },
     filterCategory(category) {
-      this.selectedDrinksType = `${category}s`
-      fetch(api.filter + category)
-        .then(res => res.json())
-        .then(data => {
-          this.filteredDrinks = []
-          this.$refs.search.value = ''
-          this.selectedDrinks = data.drinks
-        })
+      if (sessionStorage.getItem(category)) {
+        this.selectedDrinks = JSON.parse(sessionStorage.getItem(category))
+        this.selectedDrinksType = category
+      } else {
+        fetch(api.filter + category)
+          .then(res => res.json())
+          .then(data => {
+            this.selectedDrinks = data.drinks
+            this.selectedDrinksType = category
+            this.filteredDrinks = []
+            this.$refs.search.value = ''
+            sessionStorage.setItem(category, JSON.stringify(data.drinks))
+          })
+      }
+      this.filterCategory(this.categoryList[0].strCategory)
     },
     filterDrinks(filter) {
       let filteredDrinks = this.selectedDrinks
