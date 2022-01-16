@@ -5,14 +5,14 @@ nav
   a
     color: var(--nav-link-color)
     font-weight: bold
-    padding: 0 var(--content-spacing-small)
+    padding: 5px var(--content-spacing-small)
     text-decoration: none
     text-transform: uppercase
 
     &:not(:last-child)
       +query($md)
-        margin-right: rem(8)
+        margin-right: var(--content-spacing-small)
 
     &.router-link-exact-active
-      border-bottom: var(--border-medium) solid var(--text-secondary)
+      border-bottom: var(--border) solid var(--text-secondary)
       color: var(--nav-link-active-color)

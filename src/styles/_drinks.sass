@@ -5,12 +5,28 @@
   height: rem(100)
   justify-content: var(--drink-heading-justify-content)
 
-  select
+.categories
+  select,
+  input
     accent-color: var(--text-primary)
     background: transparent
+    border: var(--border) solid var(--bg-secondary)
+    box-sizing: border-box
     color: var(--text-primary)
     padding: rem(5) rem(10)
-  
+
+  input
+    font-size: var(--font-size-large)
+    width: 100%
+
+    &::placeholder
+      font-style: italic
+      font-size: 1rem
+
+    +query($sm, max)
+      margin-top: var(--content-spacing)
+
+
 .category-filters
   display: flex
   flex-direction: row
@@ -23,14 +39,18 @@
   margin:
     bottom: var(--content-spacing-double)
     top: var(--content-spacing)
+  transition: all var(--transition-timing) ease-in-out
 
 .drink
-  h3
+  &-heading
+    display: block
     line-height: 1.5
-    margin: 0
+    margin-bottom: var(--content-spacing-small)
 
   img
-    border: var(--border-medium) solid var(--text-primary)
+    aspect-ratio: 1 / 1
+    border: var(--border-medium) solid var(--text-secondary)
+    height: auto
     width: 100%
 
   

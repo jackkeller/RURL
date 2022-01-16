@@ -42,7 +42,7 @@
   @media (prefers-reduced-motion: reduce)
     --transition-timing: 0s
 
-  @media (min-width: 768px)
+  +query($md)
     --border: #{rem(2)}
     --border-medium: #{rem(4)}
     --border-large: #{rem(8)}
@@ -58,7 +58,7 @@
     --font-size-large: #{rem(24)}
     --scrollbar-width: #{rem(14)}
   
-  @media (min-width: 1200px)
+  +query($xl)
     --container-width: 1140px
     --drink-grid-columns: repeat(3, 1fr)
     --drink-grid-gap: #{rem(48)}
