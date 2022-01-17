@@ -1,14 +1,16 @@
 import '@testing-library/jest-dom'
-import { render } from '@testing-library/vue'
+import { render, screen, waitFor } from '@testing-library/vue'
 import Home from './Home.vue'
 
 describe('Home', () => {
 
-  it('should load the home view with the header Home Page', () => {
+  it('should load the home view with the Loader, then the Header', async () => {
     const { getByText } = render(Home)
-    const Header = getByText('Drinks')
+    const Loader = getByText('Loading...')
     
-    expect(Header).toBeInTheDocument()
+    expect(Loader).toBeInTheDocument()
+    // Now let's test the header appears after the loader
+    await waitFor(() => expect(screen.getByText('Ordinary Drink')).toBeInTheDocument())
   })
 
   it('should not be a flying spaghetti monster', () => {

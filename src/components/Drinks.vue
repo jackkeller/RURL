@@ -50,7 +50,6 @@ export default {
     heading: String
   },
   data() {
-    this.categoryList
     return {
       categoryList: [],
       selectedDrinks: [],

@@ -25,5 +25,13 @@ yarn lint
 ```
 
 ## Lessons Learned
-- I had a heck of a time getting `@testing-library/vue` to work with vue3 and jest; this took a bit longer than I would have liked.
-- Ran into issues with Jest not recognizing `fetch` so added `cross-fetch` package that seemed to do the trick.
+- I've been scoffed at before for using bracketless `.sass`, but I prefer less typing
+- Given my lack of knowledge on [Vue.js](https://vuejs.org), I didn't TDD this like I normally would
+- I would have implemented proper state management if I had more time
+- App is responsive, used css variables for differences to minimize the need for mediaqueries throughout
+- App has light and dark mode variants, if you want to check both use your `devtools > rendering` to emulate the opposite of your system settings
+- Transitions take `prefers-reduced-motion` into consideration for accessibility reasons
+- Filtering seemed problematic for whatever reason so that code looks pretty messy, state management would have helped here
+- I feel like using the `v-if` syntax was clunky, I would have preferred something different here but my knowledge of Vue.js was just not up to the task
+- A better understanding of the lifecycle hooks and the composition api would have really helped performance
+- This was a fun use of my spare time, over the course of the weekend I have around <time>10 hours</time> total logged in small increments
